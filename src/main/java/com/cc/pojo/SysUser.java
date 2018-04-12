@@ -34,12 +34,23 @@ public class SysUser {
     /**
      * 性别
      */
-    private String sex;
+    private Integer sex;
 
     /**
-     * 工作
+     *  职业类型：
+1：Java开发
+2：前端开发
+3：大数据开发
+4：ios开发
+5：Android开发
+6：Linux系统工程师
+7：PHP开发
+8：.net开发
+9：C/C++
+10：学生
+11：其它
      */
-    private String job;
+    private Integer job;
 
     /**
      * 头像
@@ -186,7 +197,7 @@ public class SysUser {
      *
      * @return sex - 性别
      */
-    public String getSex() {
+    public Integer getSex() {
         return sex;
     }
 
@@ -195,25 +206,69 @@ public class SysUser {
      *
      * @param sex 性别
      */
-    public void setSex(String sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
     /**
-     * 获取工作
+     * 获取 职业类型：
+1：Java开发
+2：前端开发
+3：大数据开发
+4：ios开发
+5：Android开发
+6：Linux系统工程师
+7：PHP开发
+8：.net开发
+9：C/C++
+10：学生
+11：其它
      *
-     * @return job - 工作
+     * @return job -  职业类型：
+1：Java开发
+2：前端开发
+3：大数据开发
+4：ios开发
+5：Android开发
+6：Linux系统工程师
+7：PHP开发
+8：.net开发
+9：C/C++
+10：学生
+11：其它
      */
-    public String getJob() {
+    public Integer getJob() {
         return job;
     }
 
     /**
-     * 设置工作
+     * 设置 职业类型：
+1：Java开发
+2：前端开发
+3：大数据开发
+4：ios开发
+5：Android开发
+6：Linux系统工程师
+7：PHP开发
+8：.net开发
+9：C/C++
+10：学生
+11：其它
      *
-     * @param job 工作
+     * @param job  职业类型：
+1：Java开发
+2：前端开发
+3：大数据开发
+4：ios开发
+5：Android开发
+6：Linux系统工程师
+7：PHP开发
+8：.net开发
+9：C/C++
+10：学生
+11：其它
      */
-    public void setJob(String job) {
+    public void setJob(Integer job) {
         this.job = job;
     }
 

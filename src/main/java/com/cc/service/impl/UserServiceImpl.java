@@ -9,8 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 
 import com.cc.mapper.SysUserMapper;
+import com.cc.mapper.SysUserMapperCustom;
 import com.cc.pojo.SysUser;
 import com.cc.service.UserService;
+import com.github.pagehelper.PageHelper;
 
 import tk.mybatis.mapper.entity.Example;
 
@@ -20,9 +22,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private SysUserMapper userMapper;
 	
-////	@Autowired
-////	private SysUserMapperCustom userMapperCustom;
-//	
+	@Autowired
+	private SysUserMapperCustom userMapperCustom;
+	
 	@Override
 	public void saveUser(SysUser user) throws Exception {
 		userMapper.insert(user);
@@ -81,37 +83,37 @@ public class UserServiceImpl implements UserService {
 		return userList;
 	}
 	
-//	@Override
-//	@Transactional(propagation = Propagation.SUPPORTS)
-//	public List<SysUser> queryUserListPaged(SysUser user, Integer page, Integer pageSize) {
-//		// 开始分页
-//        PageHelper.startPage(page, pageSize);
-//		
-//		Example example = new Example(SysUser.class);
-//		Example.Criteria criteria = example.createCriteria();
-//		
-//		if (!StringUtils.isEmptyOrWhitespace(user.getNickname())) {
-//			criteria.andLike("nickname", "%" + user.getNickname() + "%");
-//		}
-//		example.orderBy("registTime").desc();
-//		List<SysUser> userList = userMapper.selectByExample(example);
-//		
-//		return userList;
-//	}
-//	
-////	@Override
-////	@Transactional(propagation = Propagation.SUPPORTS)
-////	public SysUser queryUserByIdCustom(String userId) {
-////		
-////		List<SysUser> userList = userMapperCustom.queryUserSimplyInfoById(userId);
-////		
-////		if (userList != null && !userList.isEmpty()) {
-////			return (SysUser)userList.get(0);
-////		}
-////		
-////		return null;
-////	}
-//	
+	@Override
+	@Transactional(propagation = Propagation.SUPPORTS)
+	public List<SysUser> queryUserListPaged(SysUser user, Integer page, Integer pageSize) {
+		// 开始分页
+        PageHelper.startPage(page, pageSize);
+		
+		Example example = new Example(SysUser.class);
+		Example.Criteria criteria = example.createCriteria();
+		
+		if (!StringUtils.isEmptyOrWhitespace(user.getNickname())) {
+			criteria.andLike("nickname", "%" + user.getNickname() + "%");
+		}
+		example.orderBy("registTime").desc();
+		List<SysUser> userList = userMapper.selectByExample(example);
+		
+		return userList;
+	}
+	
+	@Override
+	@Transactional(propagation = Propagation.SUPPORTS)
+	public SysUser queryUserByIdCustom(String userId) {
+		
+		List<SysUser> userList = userMapperCustom.queryUserSimplyInfoById(userId);
+		
+		if (userList != null && !userList.isEmpty()) {
+			return (SysUser)userList.get(0);
+		}
+		
+		return null;
+	}
+	
 //	@Override
 //	@Transactional(propagation = Propagation.REQUIRED)
 //	public void saveUserTransactional(SysUser user) {
