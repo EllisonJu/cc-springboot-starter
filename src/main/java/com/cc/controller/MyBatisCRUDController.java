@@ -121,21 +121,21 @@ public class MyBatisCRUDController {
 		return CcJSONResult.ok(userService.queryUserByIdCustom(userId));
 	}
 	
-//	@RequestMapping("/saveUserTransactional")
-//	public CcJSONResult saveUserTransactional() {
-//		
-//		String userId = sid.nextShort();
-//		
-//		SysUser user = new SysUser();
-//		user.setId(userId);
-//		user.setUsername("lee" + new Date());
-//		user.setNickname("lee" + new Date());
-//		user.setPassword("abc123");
-//		user.setIsDelete(0);
-//		user.setRegistTime(new Date());
-//		
-//		userService.saveUserTransactional(user);
-//		
-//		return CcJSONResult.ok("保存成功");
-//	}
+	@RequestMapping("/saveUserTransactional")
+	public CcJSONResult saveUserTransactional() {
+		
+		String userId = sid.nextShort();
+		
+		SysUser user = new SysUser();
+		user.setId(userId);
+		user.setUsername("Miki" + new Date());
+		user.setNickname("Miki" + new Date());
+		user.setPassword("abc123");
+		user.setIsDelete(0);
+		user.setRegistTime(new Date());
+		
+		userService.saveUserTransactional(user);
+		
+		return CcJSONResult.ok("保存成功");
+	}
 }
